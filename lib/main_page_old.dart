@@ -3,21 +3,21 @@ import 'package:go_router/go_router.dart';
 import 'package:multi_nested_navigation/core/routes/app_routes.dart';
 import 'package:multi_nested_navigation/ui/shared/material3_bottom_navigation.dart';
 
-class MainPage extends StatefulWidget {
+class MainPageOld extends StatefulWidget {
   final Widget? child;
   final void Function(int i)? navigate;
 
-  const MainPage({
+  const MainPageOld({
     super.key,
     this.child,
     this.navigate,
   });
 
   @override
-  State<MainPage> createState() => _MainPageState();
+  State<MainPageOld> createState() => _MainPageOldState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _MainPageOldState extends State<MainPageOld> {
   int _activeIndex = 0;
 
   @override
