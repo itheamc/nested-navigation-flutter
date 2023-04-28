@@ -13,7 +13,7 @@ import '../../ui/shared/a_bottom_navigation.dart';
 import '../../ui/shared/scaffold_with_navbar.dart';
 import '../../ui/views/home/new_screen_1.dart';
 
-class AppRoutes1 {
+class AppRoutes {
   static const root = "/";
   static const home = "/home";
   static const map = "/map";
@@ -198,7 +198,7 @@ enum RouteTransition {
   slide,
 }
 
-class AppRoutes {
+class AppRoutes1 {
   static const root = "/";
   static const home = "/home";
   static const map = "/map";
