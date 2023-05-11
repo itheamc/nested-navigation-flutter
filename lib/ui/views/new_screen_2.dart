@@ -12,10 +12,10 @@ class _NewScreen2State extends State<NewScreen2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("New Screen 1"),
+        title: const Text("New Screen 2"),
       ),
       body: const Center(
-        child: Text("I am the body of new screen 1"),
+        child: Text("I am the body of new screen 2"),
       ),
     );
   }

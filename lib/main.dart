@@ -23,12 +23,7 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData.dark(
         useMaterial3: true,
       ),
-      routerConfig: RouterConfig(
-        routerDelegate: AppRoutes.router.routerDelegate,
-        routeInformationParser: AppRoutes.router.routeInformationParser,
-        routeInformationProvider: AppRoutes.router.routeInformationProvider,
-        backButtonDispatcher: AppRoutes.router.backButtonDispatcher,
-      ),
+      routerConfig: AppRoutes.router,
       debugShowCheckedModeBanner: false,
     );
   }

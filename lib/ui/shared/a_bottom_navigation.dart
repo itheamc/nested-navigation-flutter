@@ -1,29 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:multi_nested_navigation/core/routes/app_routes.dart';
 import 'package:multi_nested_navigation/utils/extension_functions.dart';
 
 class ABottomNavigation extends StatelessWidget {
   const ABottomNavigation({
     super.key,
+    required this.navItems,
     required this.currentNavItem,
     required this.onSelect,
   });
 
+  final List<NavItem> navItems;
   final NavItem currentNavItem;
-  final ValueChanged<NavItem> onSelect;
+  final void Function(int index, NavItem item) onSelect;
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      items: [
-        _buildItem(NavItem.home),
-        _buildItem(NavItem.map),
-        _buildItem(NavItem.saved),
-        _buildItem(NavItem.tasks),
-      ],
+      items: navItems
+          .map(
+            (item) => _buildItem(item),
+          )
+          .toList(),
       onTap: (index) => onSelect(
-        NavItem.values[index],
+        index,
+        navItems[index],
       ),
       currentIndex: currentNavItem.index,
     );
@@ -72,4 +75,73 @@ enum NavItem {
   final String label;
   final IconData icon;
   final IconData activeIcon;
+
+  void go(BuildContext context, String location, {Object? extra}) {
+    final loc = location.startsWith("/") ? '$path$location' : '$path/$location';
+
+    context.go(
+      loc,
+      extra: extra,
+    );
+  }
+
+  void goNamed(
+    BuildContext context,
+    String name, {
+    Map<String, String> pathParameters = const <String, String>{},
+    Map<String, dynamic> queryParameters = const <String, dynamic>{},
+    Object? extra,
+  }) =>
+      context.goNamed(
+        name,
+        pathParameters: pathParameters,
+        queryParameters: queryParameters,
+        extra: extra,
+      );
+
+  void push(BuildContext context, String location, {Object? extra}) {
+    final loc = location.startsWith("/") ? '$path$location' : '$path/$location';
+
+    context.push(
+      loc,
+      extra: extra,
+    );
+  }
+
+  void pushNamed(
+    BuildContext context,
+    String name, {
+    Map<String, String> pathParameters = const <String, String>{},
+    Map<String, dynamic> queryParameters = const <String, dynamic>{},
+    Object? extra,
+  }) =>
+      context.pushNamed(
+        name,
+        pathParameters: pathParameters,
+        queryParameters: queryParameters,
+        extra: extra,
+      );
+
+  void pushReplacement(BuildContext context, String location, {Object? extra}) {
+    final loc = location.startsWith("/") ? '$path$location' : '$path/$location';
+
+    context.pushReplacement(
+      loc,
+      extra: extra,
+    );
+  }
+
+  void pushReplacementNamed(
+    BuildContext context,
+    String name, {
+    Map<String, String> pathParameters = const <String, String>{},
+    Map<String, dynamic> queryParameters = const <String, dynamic>{},
+    Object? extra,
+  }) =>
+      context.pushReplacementNamed(
+        name,
+        pathParameters: pathParameters,
+        queryParameters: queryParameters,
+        extra: extra,
+      );
 }

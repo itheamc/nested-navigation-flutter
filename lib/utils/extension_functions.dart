@@ -14,6 +14,22 @@ extension BuildContextExt on BuildContext {
   double get height => mediaQuery.size.height;
 
   GoRouter get goRouter => GoRouter.of(this);
+
+  void goFromHome(String location, {Object? extra}) =>
+      go(location, extra: extra);
+
+  void goFromHomeNamed(
+    String name, {
+    Map<String, String> pathParameters = const <String, String>{},
+    Map<String, dynamic> queryParameters = const <String, dynamic>{},
+    Object? extra,
+  }) =>
+      goNamed(
+        name,
+        pathParameters: pathParameters,
+        queryParameters: queryParameters,
+        extra: extra,
+      );
 }
 
 /// Extension on NavItem

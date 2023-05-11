@@ -20,9 +20,10 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            AppRoutes.navigatorKeys[NavItem.home]!.currentState?.context.push(AppRoutes.newScreen1);
+            // NavItem.home.push(context, AppRoutes.newScreen1);
+            context.pushNamed(AppRoutes.pathAsName(AppRoutes.newScreen1));
           },
-          child: Text("New Screen"),
+          child: const Text("New Screen"),
         ),
       ),
     );
