@@ -17,18 +17,23 @@ class ABottomNavigation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      items: navItems
-          .map(
-            (item) => _buildItem(item),
-          )
-          .toList(),
-      onTap: (index) => onSelect(
-        index,
-        navItems[index],
+    return BottomNavigationBarTheme(
+      data: context.theme.bottomNavigationBarTheme.copyWith(
+        type: BottomNavigationBarType.shifting
       ),
-      currentIndex: currentNavItem.index,
+      child: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: navItems
+            .map(
+              (item) => _buildItem(item),
+            )
+            .toList(),
+        onTap: (index) => onSelect(
+          index,
+          navItems[index],
+        ),
+        currentIndex: currentNavItem.index,
+      ),
     );
   }
 

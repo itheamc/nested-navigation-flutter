@@ -11,6 +11,7 @@ import '../../ui/shared/a_bottom_navigation.dart';
 import '../../ui/views/main_wrapper/main_wrapper_screen.dart';
 import '../../ui/views/new_screen_1.dart';
 import '../../ui/views/new_screen_2.dart';
+import '../../ui/views/new_screen_3.dart';
 
 class AppRoutes {
   static const root = "/";
@@ -22,6 +23,7 @@ class AppRoutes {
   /// Paths that will be visited from home
   static const newScreen1 = "new_screen_1";
   static const newScreen2 = "new_screen_2";
+  static const newScreen3 = "new_screen_3";
 
   static String pathAsName(String path) => path.replaceAll("/", "");
 
@@ -64,6 +66,17 @@ class AppRoutes {
                   child: const NewScreen1(),
                   transitionType: TransitionType.slide,
                 ),
+                routes: [
+                  GoRoute(
+                    path: newScreen3,
+                    name: pathAsName(newScreen3),
+                    pageBuilder: (_, state) => _pageBuilder(
+                      state: state,
+                      child: const NewScreen3(),
+                      transitionType: TransitionType.slide,
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

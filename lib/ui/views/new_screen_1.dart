@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/routes/app_routes.dart';
+import '../shared/a_bottom_navigation.dart';
 
 class NewScreen1 extends StatefulWidget {
   const NewScreen1({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _NewScreen1State extends State<NewScreen1> {
           return ListTile(
             title: Text("Title ${index + 1}"),
             onTap: () {
-              context.pushNamed(AppRoutes.pathAsName(AppRoutes.newScreen2));
+              context.pushNamed(AppRoutes.pathAsName(AppRoutes.newScreen3));
             },
           );
         },

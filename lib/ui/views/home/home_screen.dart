@@ -14,13 +14,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
-      ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            // NavItem.home.push(context, AppRoutes.newScreen1);
             context.pushNamed(AppRoutes.pathAsName(AppRoutes.newScreen1));
           },
           child: const Text("New Screen"),
